@@ -4,17 +4,33 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointer
 import { Button } from "@/components/ui/button";
 import { ClientWork } from "@/components/client-work";
 import { ProjectFormDialog, openProjectForm } from "@/components/project-form";
-import reference from "@/assets/imagenmerce-reference.jpg";
-import catalog from "@/assets/imagenmerce-catalog.jpg";
-import hero from "@/assets/form01-hero.jpg";
-import angle from "@/assets/form01-angle.jpg";
-import detail from "@/assets/form01-detail.jpg";
-import lifestyleDark from "@/assets/form01-lifestyle-dark.jpg";
-import lifestyleLight from "@/assets/form01-lifestyle-light.jpg";
-import dimensions from "@/assets/form01-dimensions.jpg";
+import originalAsset from "@/assets/RF-A1592.webp.asset.json";
+import gen1 from "@/assets/RF-A1592_1.png.asset.json";
+import gen2 from "@/assets/RF-A1592_2.png.asset.json";
+import gen3 from "@/assets/RF-A1592_3.png.asset.json";
+import gen4 from "@/assets/RF-A1592_4.png.asset.json";
+import gen5 from "@/assets/RF-A1592_5.png.asset.json";
+import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+
+const reference = originalAsset.url;
+const hero = gen1.url;
+const angle = gen2.url;
+const detail = gen3.url;
+const lifestyleDark = gen4.url;
+const lifestyleLight = gen5.url;
+const dimensions = gen6.url;
 
 const images = [hero, angle, detail, lifestyleDark, lifestyleLight, dimensions];
 const imageNames = ["Hero", "Angle", "Detail", "Lifestyle 01", "Lifestyle 02", "Dimensions"];
+const processSteps: [string, string, string][] = [
+  ["Original photograph", "The photo exactly as the client supplied it — room lighting, wall, floor and all.", originalAsset.url],
+  ["Background cleanup", "The room is removed and replaced with a clean, even studio background.", gen1.url],
+  ["Product isolation", "The sideboard is cut out precisely, edge by edge, with nothing else left behind.", gen1.url],
+  ["Center & frame", "The product is centered on a square canvas with consistent breathing space.", gen1.url],
+  ["Controlled shadow", "A soft, believable contact shadow grounds the product on the surface.", gen1.url],
+  ["Professional final image", "The finished, ready-to-list product image — RF-A1592_1.", gen1.url],
+];
+
 const sequence = [
   ["01", "Hero image", "The Image Customers See First.", "A clean product-first presentation designed to make the object immediately understandable."],
   ["02", "Angled view", "Show the Form.", "A controlled three-quarter perspective communicates depth, proportions and construction."],
@@ -80,14 +96,15 @@ function SectionHead({ number, label, title, copy }: { number: string; label: st
 
 function Standards() {
   const [camera, setCamera] = useState(1);
-  const cameraImages = [hero, angle, hero, detail];
+  const cameraImages = [hero, angle, detail, lifestyleDark];
+  const cameraNames = ["Front", "Three-quarter", "Detail", "In context"];
   return <section id="system" className="section-pad page-shell">
     <SectionHead number="03" label="Our standard" title="Consistency Is What Makes a Catalog Feel Designed." copy="A strong image is useful. A repeatable image system makes the entire catalog work together."/>
     <div className="grid gap-6 lg:grid-cols-2">
-      <div className="fine-grid relative aspect-square overflow-hidden border bg-card p-[12%]"><div className="absolute inset-x-[15%] top-1/2 border-t border-signal/70"/><div className="absolute inset-y-[12%] left-1/2 border-l border-signal/70"/><img src={hero} alt="FORM 01 chair centered within square composition guides" loading="lazy" width={512} height={768} className="size-full object-contain"/><span className="eyebrow absolute left-4 top-4">1:1 canvas / 70% product scale</span><span className="eyebrow absolute bottom-4 right-4 text-signal">10–15% breathing space</span></div>
-      <div className="grid grid-cols-3 gap-3 self-end">{[[reference,"Too tight"],[angle,"Inconsistent"],[hero,"Balanced"]].map(([src,label],i)=><figure key={label} className={i===2?"border border-signal p-2":"border p-2 opacity-55"}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt={`${label} framing example`} loading="lazy" width={512} height={512} className="size-full object-cover"/></div><figcaption className="eyebrow mt-3">{label}</figcaption></figure>)}<p className="col-span-3 mt-3 text-2xl">Same scale. Same breathing room. One visual rhythm.</p></div>
+      <div className="fine-grid relative aspect-square overflow-hidden border bg-card p-[12%]"><div className="absolute inset-x-[15%] top-1/2 border-t border-signal/70"/><div className="absolute inset-y-[12%] left-1/2 border-l border-signal/70"/><img src={hero} alt="RF-A1592 sideboard centered within square composition guides" loading="lazy" width={512} height={768} className="size-full object-contain"/><span className="eyebrow absolute left-4 top-4">1:1 canvas / 70% product scale</span><span className="eyebrow absolute bottom-4 right-4 text-signal">10–15% breathing space</span></div>
+      <div className="grid grid-cols-3 gap-3 self-end">{[[reference,"Too tight","p-0 scale-125"],[angle,"Inconsistent","p-[22%]"],[hero,"Balanced","p-[10%]"]].map(([src,label,fit],i)=><figure key={label} className={i===2?"border border-signal p-2":"border p-2 opacity-55"}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt={`${label} framing example`} loading="lazy" width={512} height={512} className={`size-full object-contain ${fit}`}/></div><figcaption className="eyebrow mt-3">{label}</figcaption></figure>)}<p className="col-span-3 mt-3 text-2xl">Same scale. Same breathing room. One visual rhythm.</p></div>
     </div>
-    <div className="mt-24 grid gap-8 border-t pt-8 lg:grid-cols-[1fr_2fr]"><div><p className="eyebrow text-muted-foreground">Camera standard</p><h3 className="display-title mt-4 text-5xl">Angles should explain the product.</h3><div className="mt-8 flex flex-wrap gap-2">{["Front","30–35°","Side","Detail"].map((name,i)=><Button key={name} size="sm" variant={camera===i?"primary":"outline"} onClick={()=>setCamera(i)}>{name}</Button>)}</div></div><div className="relative aspect-[4/3] overflow-hidden bg-card"><img src={cameraImages[camera]} alt={`${["Front","Three-quarter","Side","Detail"][camera]} product view`} loading="lazy" width={512} height={768} className={`size-full ${camera===3?"object-cover":"object-contain"} transition-all duration-500`}/><span className="absolute bottom-4 left-4 bg-primary px-3 py-2 text-[10px] uppercase text-primary-foreground">{camera===1?"Preferred when depth matters":"Controlled camera view"}</span></div></div>
+    <div className="mt-24 grid gap-8 border-t pt-8 lg:grid-cols-[1fr_2fr]"><div><p className="eyebrow text-muted-foreground">Camera standard</p><h3 className="display-title mt-4 text-5xl">Angles should explain the product.</h3><div className="mt-8 flex flex-wrap gap-2">{["Front","30–35°","Detail","In context"].map((name,i)=><Button key={name} size="sm" variant={camera===i?"primary":"outline"} onClick={()=>setCamera(i)}>{name}</Button>)}</div></div><div className="relative aspect-[4/3] overflow-hidden bg-card"><img src={cameraImages[camera]} alt={`RF-A1592 ${cameraNames[camera]} product view`} loading="lazy" width={512} height={768} className="size-full object-contain transition-all duration-500"/><span className="absolute bottom-4 left-4 bg-primary px-3 py-2 text-[10px] uppercase text-primary-foreground">{camera===1?"Preferred when depth matters":"Controlled camera view"}</span></div></div>
   </section>;
 }
 
@@ -95,7 +112,7 @@ function SixSequence() {
   const [active, setActive] = useState(0);
   useEffect(()=>{ const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=Number((e.target as HTMLElement).dataset["index"]);setActive(i)}}),{threshold:.55}); document.querySelectorAll("[data-sequence]").forEach(e=>obs.observe(e)); return()=>obs.disconnect()},[]);
   return <section id="sequence" className="relative bg-primary text-primary-foreground"><div className="sticky top-24 z-20 ml-auto hidden w-16 flex-col items-center gap-3 border-y border-primary-foreground/20 bg-primary/80 py-4 backdrop-blur md:flex">{sequence.map((s,i)=><a href={`#image-${i+1}`} key={s[0]} className={`text-[10px] transition-all ${active===i?"scale-125 text-accent":"opacity-35"}`}>{s[0]}</a>)}</div>
-    {sequence.map((item,i)=><article key={item[0]} id={`image-${i+1}`} data-sequence data-index={i} className={`sequence-panel grid min-h-screen items-center gap-10 px-4 py-28 md:px-12 lg:grid-cols-[.8fr_1.2fr] ${active===i?"is-active":""}`}><div className="mx-auto max-w-xl"><p className="eyebrow text-accent">{item[0]} — {item[1]}</p><h2 className="display-title mt-6 text-6xl sm:text-7xl lg:text-8xl">{item[2]}</h2><p className="mt-7 max-w-md text-sm leading-7 text-primary-foreground/65">{item[3]}</p></div><div className="mx-auto aspect-square w-full max-w-3xl overflow-hidden bg-card"><img src={images[i]} alt={`FORM 01 chair — ${imageNames[i]}`} loading="lazy" width={512} height={768} className="size-full object-cover"/></div></article>)}
+    {sequence.map((item,i)=><article key={item[0]} id={`image-${i+1}`} data-sequence data-index={i} className={`sequence-panel grid min-h-screen items-center gap-10 px-4 py-28 md:px-12 lg:grid-cols-[.8fr_1.2fr] ${active===i?"is-active":""}`}><div className="mx-auto max-w-xl"><p className="eyebrow text-accent">{item[0]} — {item[1]}</p><h2 className="display-title mt-6 text-6xl sm:text-7xl lg:text-8xl">{item[2]}</h2><p className="mt-7 max-w-md text-sm leading-7 text-primary-foreground/65">{item[3]}</p></div><div className="mx-auto aspect-square w-full max-w-3xl overflow-hidden bg-card"><img src={images[i]} alt={`RF-A1592 sideboard — ${imageNames[i]}`} loading="lazy" width={512} height={768} className="size-full object-contain"/></div></article>)}
   </section>;
 }
 
@@ -105,30 +122,57 @@ function Explosion() {
 }
 
 function CatalogCompare() {
-  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><img src={catalog} alt="Consistent catalog of fictional furniture product images" loading="lazy" width={1536} height={1536} className="mx-auto w-full max-w-3xl rounded-md object-contain"/><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
+  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{images.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`RF-A1592 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
 }
 
 function ProductPage() {
   const [selected,setSelected]=useState(0);
   return <section className="section-pad bg-primary text-primary-foreground"><div className="page-shell"><SectionHead number="10" label="Listing experience" title="See the Difference Where It Matters."/>
-    <div className="grid gap-8 bg-background p-4 text-foreground md:p-8 lg:grid-cols-[1.4fr_.6fr]"><div><div className="aspect-square overflow-hidden bg-card"><img src={images[selected]} alt={`FORM 01 ${imageNames[selected]} view`} loading="lazy" width={512} height={768} className="size-full object-contain"/></div><div className="mt-3 grid grid-cols-6 gap-2">{images.map((src,i)=><button key={src} onClick={()=>setSelected(i)} aria-label={`View ${imageNames[i]}`} className={`aspect-square overflow-hidden border-2 ${selected===i?"border-signal":"border-transparent"}`}><img src={src} alt="" width={100} height={100} className="size-full object-contain"/></button>)}</div></div>
-      <div className="flex flex-col justify-between py-2"><div><p className="eyebrow text-muted-foreground">Fictional product</p><h3 className="display-title mt-4 text-6xl">FORM 01</h3><p className="mt-2 text-sm text-muted-foreground">Sculpted lounge chair / Cloud boucle</p><div className="mt-10 border-t py-5 text-sm leading-7">A low-profile lounge chair with a continuous upholstered shell and a restrained steel sled base.</div></div><Button onClick={openProjectForm}>Enquire about this product <ArrowRight size={15}/></Button></div></div>
+    <div className="grid gap-8 bg-background p-4 text-foreground md:p-8 lg:grid-cols-[1.4fr_.6fr]"><div><div className="aspect-square overflow-hidden bg-card"><img src={images[selected]} alt={`RF-A1592 ${imageNames[selected]} view`} loading="lazy" width={512} height={768} className="size-full object-contain"/></div><div className="mt-3 grid grid-cols-6 gap-2">{images.map((src,i)=><button key={src} onClick={()=>setSelected(i)} aria-label={`View ${imageNames[i]}`} className={`aspect-square overflow-hidden border-2 ${selected===i?"border-signal":"border-transparent"}`}><img src={src} alt="" width={100} height={100} className="size-full object-contain"/></button>)}</div></div>
+      <div className="flex flex-col justify-between py-2"><div><p className="eyebrow text-muted-foreground">Client product / SKU RF-A1592</p><h3 className="display-title mt-4 text-6xl">RF-A1592</h3><p className="mt-2 text-sm text-muted-foreground">Mid-century sideboard / Solid walnut</p><div className="mt-10 border-t py-5 text-sm leading-7">A four-door sideboard in warm walnut with tapered legs and slim recessed handles. 150 × 35 × 90 cm.</div></div><Button onClick={openProjectForm}>Enquire about this product <ArrowRight size={15}/></Button></div></div>
   </div></section>;
 }
 
 function CatalogScale() {
   const [count,setCount]=useState(50); const output=useMemo(()=>count*6,[count]);
   return <section id="catalogs" className="section-pad page-shell"><SectionHead number="12" label="Built for catalogs" title="From One Product to an Entire Catalog." copy="The same visual rules can be applied across small collections and large catalogs."/>
-    <div className="grid gap-10 lg:grid-cols-2"><div className="rounded-lg border bg-card p-4"><img src={catalog} alt="Organized fictional furniture catalog" loading="lazy" width={1536} height={1536} className="w-full rounded-md object-contain"/></div><div className="flex flex-col justify-between border-y py-8"><div><p className="eyebrow text-muted-foreground">Illustrative image-count calculator</p><label htmlFor="products" className="mt-10 block text-sm">Number of products</label><input id="products" type="range" min="1" max="500" value={count} onChange={e=>setCount(Number(e.target.value))} className="mt-5 w-full accent-signal"/><div className="mt-3 flex justify-between text-xs text-muted-foreground"><span>1</span><span>500</span></div></div><div className="mt-14"><p className="display-title text-7xl">{count} × 6</p><p className="mt-3 text-2xl">{output.toLocaleString()} potential image assets</p><p className="mt-4 max-w-sm text-xs leading-6 text-muted-foreground">Illustrative image-count calculation only. Final scope depends on the selected views and supplied references.</p></div></div></div>
+    <div className="grid gap-10 lg:grid-cols-2"><div className="rounded-lg border bg-card p-4"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{images.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`RF-A1592 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div></div><div className="flex flex-col justify-between border-y py-8"><div><p className="eyebrow text-muted-foreground">Illustrative image-count calculator</p><label htmlFor="products" className="mt-10 block text-sm">Number of products</label><input id="products" type="range" min="1" max="500" value={count} onChange={e=>setCount(Number(e.target.value))} className="mt-5 w-full accent-signal"/><div className="mt-3 flex justify-between text-xs text-muted-foreground"><span>1</span><span>500</span></div></div><div className="mt-14"><p className="display-title text-7xl">{count} × 6</p><p className="mt-3 text-2xl">{output.toLocaleString()} potential image assets</p><p className="mt-4 max-w-sm text-xs leading-6 text-muted-foreground">Illustrative image-count calculation only. Final scope depends on the selected views and supplied references.</p></div></div></div>
   </section>;
 }
 
 function ProjectGallery() {
   const [project,setProject]=useState<number|null>(null);
   return <section id="examples" className="section-pad page-shell"><SectionHead number="15" label="Before / after work" title="Reference to Result."/>
-    <div className="grid gap-5 md:grid-cols-3">{[0,1,2].map(i=><button key={i} onClick={()=>setProject(i)} className="group text-left"><div className="relative aspect-[4/5] overflow-hidden bg-muted"><img src={i===0?hero:i===1?angle:lifestyleDark} alt={`Project 0${i+1} result`} loading="lazy" width={512} height={768} className="size-full object-cover transition-transform duration-700 group-hover:scale-105"/><Expand className="absolute right-4 top-4 bg-background p-2" size={38}/></div><p className="eyebrow mt-4">Project 0{i+1} <span className="text-muted-foreground">— Reference → Result</span></p></button>)}</div>
-    {project!==null&&<div className="fixed inset-0 z-[70] overflow-y-auto bg-primary text-primary-foreground" role="dialog" aria-modal="true" aria-label={`Project 0${project+1} case study`}><div className="page-shell py-6"><div className="flex items-center justify-between"><p className="eyebrow">Project 0{project+1} / FORM 01 study</p><Button variant="inverse" size="icon" onClick={()=>setProject(null)} aria-label="Close case study"><X/></Button></div><div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">{[reference,...images].map((src,i)=><figure key={src} className={i===0?"col-span-2 row-span-2":""}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt={i===0?"Original reference":imageNames[i-1]} width={512} height={768} className="size-full object-contain"/></div><figcaption className="eyebrow mt-2">{i===0?"Original":imageNames[i-1]}</figcaption></figure>)}</div></div></div>}
+    <div className="grid gap-5 md:grid-cols-3">{[0,1,2].map(i=><button key={i} onClick={()=>setProject(i)} className="group text-left"><div className="relative aspect-[4/5] overflow-hidden bg-muted"><img src={i===0?hero:i===1?angle:lifestyleDark} alt={`Project 0${i+1} result`} loading="lazy" width={512} height={768} className="size-full bg-card object-contain transition-transform duration-700 group-hover:scale-105"/><Expand className="absolute right-4 top-4 bg-background p-2" size={38}/></div><p className="eyebrow mt-4">Project 0{i+1} <span className="text-muted-foreground">— Reference → Result</span></p></button>)}</div>
+    {project!==null&&<div className="fixed inset-0 z-[70] overflow-y-auto bg-primary text-primary-foreground" role="dialog" aria-modal="true" aria-label={`Project 0${project+1} case study`}><div className="page-shell py-6"><div className="flex items-center justify-between"><p className="eyebrow">Project 0{project+1} / RF-A1592 study</p><Button variant="inverse" size="icon" onClick={()=>setProject(null)} aria-label="Close case study"><X/></Button></div><div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-4">{[reference,...images].map((src,i)=><figure key={src} className={i===0?"col-span-2 row-span-2":""}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt={i===0?"Original reference":imageNames[i-1]} width={512} height={768} className="size-full object-contain"/></div><figcaption className="eyebrow mt-2">{i===0?"Original":imageNames[i-1]}</figcaption></figure>)}</div></div></div>}
   </section>;
+}
+
+function ReferenceDrop() {
+  const [file, setFile] = useState<{ name: string; url: string } | null>(null);
+  const [over, setOver] = useState(false);
+  const accept = (list: FileList | null) => {
+    const picked = list?.[0];
+    if (picked && picked.type.startsWith("image/")) setFile({ name: picked.name, url: URL.createObjectURL(picked) });
+  };
+  return <div className="flex flex-col gap-4">
+    <label
+      onDragOver={(e) => { e.preventDefault(); setOver(true); }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => { e.preventDefault(); setOver(false); accept(e.dataTransfer.files); }}
+      className={`flex min-h-80 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed bg-card p-4 text-center transition-colors ${over ? "border-signal bg-signal/5" : ""}`}
+    >
+      <input type="file" accept="image/*" className="sr-only" onChange={(e) => accept(e.target.files)} />
+      {file ? <>
+        <img src={file.url} alt={file.name} className="max-h-64 w-auto rounded-md object-contain" />
+        <span className="mt-4 text-xs text-muted-foreground">{file.name} — click to choose another image</span>
+      </> : <>
+        <span className="display-title text-4xl">Drop your reference image</span>
+        <span className="mt-3 text-xs text-muted-foreground">or click to select from your device</span>
+      </>}
+    </label>
+    {file && <div className="flex flex-wrap items-center gap-3"><Button onClick={openProjectForm}>Send this reference with my request <ArrowRight size={15}/></Button><Button variant="outline" onClick={() => setFile(null)}>Remove</Button></div>}
+  </div>;
 }
 
 function Index() {
@@ -141,7 +185,13 @@ function Index() {
     <ClientWork/>
 
     <section id="process" className="section-pad bg-primary text-primary-foreground"><div className="page-shell"><SectionHead number="02" label="Reference to ready-to-use" title="You send the product. We build the visual system around it."/>
-      <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr]"><div className="relative aspect-square overflow-hidden bg-card"><img src={processStep<2?reference:hero} alt="Product imaging process" loading="lazy" width={1536} height={1536} className={`size-full transition-all duration-700 ${processStep===0?"object-cover grayscale-[.3]":processStep===1?"object-cover contrast-110":"object-contain"}`}/>{processStep===1&&<div className="absolute inset-[8%] border border-dashed border-accent"/>}</div><div className="flex flex-col justify-center">{["Original photograph","Background cleanup","Product isolation","Center & frame","Controlled shadow","Professional final image"].map((s,i)=><button key={s} onMouseEnter={()=>setProcessStep(i)} onClick={()=>setProcessStep(i)} className={`flex items-center gap-4 border-t py-5 text-left transition-all ${processStep===i?"text-accent":"text-primary-foreground/35"}`}><span className="text-xs">0{i+1}</span><span className="text-xl">{s}</span></button>)}</div></div>
+      <div className="grid gap-8 lg:grid-cols-[1.2fr_.8fr]"><div className="relative aspect-square overflow-hidden bg-card"><img src={processSteps[processStep]![2]} alt={`RF-A1592 sideboard — ${processSteps[processStep]![0]}`} width={1536} height={1536} className={`size-full transition-all duration-700 ${processStep===0?"object-cover":"object-contain p-[6%]"}`}/>
+        {processStep===2&&<div className="pointer-events-none absolute inset-[16%] rounded-sm border-2 border-dashed border-accent"/>}
+        {processStep===3&&<><div className="pointer-events-none absolute inset-x-[10%] top-1/2 border-t border-accent/70"/><div className="pointer-events-none absolute inset-y-[10%] left-1/2 border-l border-accent/70"/></>}
+        {processStep===4&&<div className="pointer-events-none absolute inset-x-[18%] bottom-[14%] h-6 rounded-[50%] bg-foreground/25 blur-md"/>}
+        <span className="absolute left-4 top-4 bg-primary px-3 py-2 text-[9px] font-bold uppercase tracking-[.16em] text-primary-foreground">{processStep===0?"RF-A1592 — client photo":`RF-A1592_1 — step 0${processStep+1}`}</span>
+        <p className="absolute inset-x-0 bottom-0 bg-primary/90 px-4 py-3 text-xs leading-6 text-primary-foreground">{processSteps[processStep]![1]}</p></div><div className="flex flex-col justify-center">{processSteps.map((step,i)=><button key={step[0]} onMouseEnter={()=>setProcessStep(i)} onClick={()=>setProcessStep(i)} className={`flex items-center gap-4 border-t py-5 text-left transition-all ${processStep===i?"text-accent":"text-primary-foreground/35"}`}><span className="text-xs">0{i+1}</span><span className="text-xl">{step[0]}</span></button>)}</div></div>
+
     </div></section>
 
     <Standards/><SixSequence/><Explosion/><CatalogCompare/>
@@ -160,7 +210,7 @@ function Index() {
 
     <section className="section-pad bg-primary text-primary-foreground"><div className="page-shell"><SectionHead number="13" label="How it works" title="Five Clear Steps."/><div className="grid gap-px bg-primary-foreground/20 md:grid-cols-5">{[["01","Send","Reference image and information"],["02","Define","Choose required views"],["03","Create","Build the visual set"],["04","Review","Check appearance and views"],["05","Deliver","Receive finalized assets"]].map(x=><div key={x[0]} className="bg-primary p-6"><span className="eyebrow text-accent">{x[0]}</span><h3 className="display-title mt-16 text-4xl">{x[1]}</h3><p className="mt-4 text-xs leading-5 text-primary-foreground/55">{x[2]}</p></div>)}</div></div></section>
 
-    <section className="section-pad page-shell"><SectionHead number="14" label="What we need" title="Start With What You Already Have."/><div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr]"><label className="flex min-h-80 cursor-pointer flex-col items-center justify-center border border-dashed bg-card text-center"><input type="file" accept="image/*" className="sr-only"/><span className="display-title text-4xl">Drop your reference image</span><span className="mt-3 text-xs text-muted-foreground">or select from your device</span></label><div>{["Product dimensions, if required","Correct product color","Important material information","Details that must not change","Desired image count","Required environments","Existing visual guidelines"].map(x=><div key={x} className="flex gap-3 border-t py-4 text-sm"><Check size={15} className="text-signal"/>{x}</div>)}<p className="mt-6 text-sm text-muted-foreground">Better references help us preserve more product detail.</p></div></div></section>
+    <section className="section-pad page-shell"><SectionHead number="14" label="What we need" title="Start With What You Already Have."/><div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr]"><ReferenceDrop/><div>{["Product dimensions, if required","Correct product color","Important material information","Details that must not change","Desired image count","Required environments","Existing visual guidelines"].map(x=><div key={x} className="flex gap-3 border-t py-4 text-sm"><Check size={15} className="text-signal"/>{x}</div>)}<p className="mt-6 text-sm text-muted-foreground">Better references help us preserve more product detail.</p></div></div></section>
 
     <ProjectGallery/>
 
