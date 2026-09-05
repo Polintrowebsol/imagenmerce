@@ -4,17 +4,26 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointer
 import { Button } from "@/components/ui/button";
 import { ClientWork } from "@/components/client-work";
 import { ProjectFormDialog, openProjectForm } from "@/components/project-form";
-import reference from "@/assets/imagenmerce-reference.jpg";
 import catalog from "@/assets/imagenmerce-catalog.jpg";
-import hero from "@/assets/form01-hero.jpg";
-import angle from "@/assets/form01-angle.jpg";
-import detail from "@/assets/form01-detail.jpg";
-import lifestyleDark from "@/assets/form01-lifestyle-dark.jpg";
-import lifestyleLight from "@/assets/form01-lifestyle-light.jpg";
-import dimensions from "@/assets/form01-dimensions.jpg";
+import originalAsset from "@/assets/RF-A1592.webp.asset.json";
+import gen1 from "@/assets/RF-A1592_1.png.asset.json";
+import gen2 from "@/assets/RF-A1592_2.png.asset.json";
+import gen3 from "@/assets/RF-A1592_3.png.asset.json";
+import gen4 from "@/assets/RF-A1592_4.png.asset.json";
+import gen5 from "@/assets/RF-A1592_5.png.asset.json";
+import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+
+const reference = originalAsset.url;
+const hero = gen1.url;
+const angle = gen2.url;
+const detail = gen3.url;
+const lifestyleDark = gen4.url;
+const lifestyleLight = gen5.url;
+const dimensions = gen6.url;
 
 const images = [hero, angle, detail, lifestyleDark, lifestyleLight, dimensions];
 const imageNames = ["Hero", "Angle", "Detail", "Lifestyle 01", "Lifestyle 02", "Dimensions"];
+
 const sequence = [
   ["01", "Hero image", "The Image Customers See First.", "A clean product-first presentation designed to make the object immediately understandable."],
   ["02", "Angled view", "Show the Form.", "A controlled three-quarter perspective communicates depth, proportions and construction."],
