@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointer
 import { Button } from "@/components/ui/button";
 import { ClientWork } from "@/components/client-work";
 import { ProjectFormDialog, openProjectForm } from "@/components/project-form";
-import catalog from "@/assets/imagenmerce-catalog.jpg";
 import originalAsset from "@/assets/RF-A1592.webp.asset.json";
 import gen1 from "@/assets/RF-A1592_1.png.asset.json";
 import gen2 from "@/assets/RF-A1592_2.png.asset.json";
@@ -122,7 +121,7 @@ function Explosion() {
 }
 
 function CatalogCompare() {
-  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><img src={catalog} alt="Consistent catalog of fictional furniture product images" loading="lazy" width={1536} height={1536} className="mx-auto w-full max-w-3xl rounded-md object-contain"/><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
+  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{images.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`RF-A1592 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
 }
 
 function ProductPage() {
@@ -136,7 +135,7 @@ function ProductPage() {
 function CatalogScale() {
   const [count,setCount]=useState(50); const output=useMemo(()=>count*6,[count]);
   return <section id="catalogs" className="section-pad page-shell"><SectionHead number="12" label="Built for catalogs" title="From One Product to an Entire Catalog." copy="The same visual rules can be applied across small collections and large catalogs."/>
-    <div className="grid gap-10 lg:grid-cols-2"><div className="rounded-lg border bg-card p-4"><img src={catalog} alt="Organized fictional furniture catalog" loading="lazy" width={1536} height={1536} className="w-full rounded-md object-contain"/></div><div className="flex flex-col justify-between border-y py-8"><div><p className="eyebrow text-muted-foreground">Illustrative image-count calculator</p><label htmlFor="products" className="mt-10 block text-sm">Number of products</label><input id="products" type="range" min="1" max="500" value={count} onChange={e=>setCount(Number(e.target.value))} className="mt-5 w-full accent-signal"/><div className="mt-3 flex justify-between text-xs text-muted-foreground"><span>1</span><span>500</span></div></div><div className="mt-14"><p className="display-title text-7xl">{count} × 6</p><p className="mt-3 text-2xl">{output.toLocaleString()} potential image assets</p><p className="mt-4 max-w-sm text-xs leading-6 text-muted-foreground">Illustrative image-count calculation only. Final scope depends on the selected views and supplied references.</p></div></div></div>
+    <div className="grid gap-10 lg:grid-cols-2"><div className="rounded-lg border bg-card p-4"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{images.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`RF-A1592 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div></div><div className="flex flex-col justify-between border-y py-8"><div><p className="eyebrow text-muted-foreground">Illustrative image-count calculator</p><label htmlFor="products" className="mt-10 block text-sm">Number of products</label><input id="products" type="range" min="1" max="500" value={count} onChange={e=>setCount(Number(e.target.value))} className="mt-5 w-full accent-signal"/><div className="mt-3 flex justify-between text-xs text-muted-foreground"><span>1</span><span>500</span></div></div><div className="mt-14"><p className="display-title text-7xl">{count} × 6</p><p className="mt-3 text-2xl">{output.toLocaleString()} potential image assets</p><p className="mt-4 max-w-sm text-xs leading-6 text-muted-foreground">Illustrative image-count calculation only. Final scope depends on the selected views and supplied references.</p></div></div></div>
   </section>;
 }
 
