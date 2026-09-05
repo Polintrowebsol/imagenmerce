@@ -23,6 +23,14 @@ const dimensions = gen6.url;
 
 const images = [hero, angle, detail, lifestyleDark, lifestyleLight, dimensions];
 const imageNames = ["Hero", "Angle", "Detail", "Lifestyle 01", "Lifestyle 02", "Dimensions"];
+const processSteps: [string, string, string][] = [
+  ["Original photograph", "The photo exactly as the client supplied it — room lighting, wall, floor and all.", originalAsset.url],
+  ["Background cleanup", "The room is removed and replaced with a clean, even studio background.", gen1.url],
+  ["Product isolation", "The sideboard is cut out precisely, edge by edge, with nothing else left behind.", gen1.url],
+  ["Center & frame", "The product is centered on a square canvas with consistent breathing space.", gen1.url],
+  ["Controlled shadow", "A soft, believable contact shadow grounds the product on the surface.", gen1.url],
+  ["Professional final image", "The finished, ready-to-list product image — RF-A1592_1.", gen1.url],
+];
 
 const sequence = [
   ["01", "Hero image", "The Image Customers See First.", "A clean product-first presentation designed to make the object immediately understandable."],
@@ -140,6 +148,33 @@ function ProjectGallery() {
   </section>;
 }
 
+function ReferenceDrop() {
+  const [file, setFile] = useState<{ name: string; url: string } | null>(null);
+  const [over, setOver] = useState(false);
+  const accept = (list: FileList | null) => {
+    const picked = list?.[0];
+    if (picked && picked.type.startsWith("image/")) setFile({ name: picked.name, url: URL.createObjectURL(picked) });
+  };
+  return <div className="flex flex-col gap-4">
+    <label
+      onDragOver={(e) => { e.preventDefault(); setOver(true); }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => { e.preventDefault(); setOver(false); accept(e.dataTransfer.files); }}
+      className={`flex min-h-80 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed bg-card p-4 text-center transition-colors ${over ? "border-signal bg-signal/5" : ""}`}
+    >
+      <input type="file" accept="image/*" className="sr-only" onChange={(e) => accept(e.target.files)} />
+      {file ? <>
+        <img src={file.url} alt={file.name} className="max-h-64 w-auto rounded-md object-contain" />
+        <span className="mt-4 text-xs text-muted-foreground">{file.name} — click to choose another image</span>
+      </> : <>
+        <span className="display-title text-4xl">Drop your reference image</span>
+        <span className="mt-3 text-xs text-muted-foreground">or click to select from your device</span>
+      </>}
+    </label>
+    {file && <div className="flex flex-wrap items-center gap-3"><Button onClick={openProjectForm}>Send this reference with my request <ArrowRight size={15}/></Button><Button variant="outline" onClick={() => setFile(null)}>Remove</Button></div>}
+  </div>;
+}
+
 function Index() {
   useReveal();
   const [processStep,setProcessStep]=useState(0);
@@ -175,7 +210,7 @@ function Index() {
 
     <section className="section-pad bg-primary text-primary-foreground"><div className="page-shell"><SectionHead number="13" label="How it works" title="Five Clear Steps."/><div className="grid gap-px bg-primary-foreground/20 md:grid-cols-5">{[["01","Send","Reference image and information"],["02","Define","Choose required views"],["03","Create","Build the visual set"],["04","Review","Check appearance and views"],["05","Deliver","Receive finalized assets"]].map(x=><div key={x[0]} className="bg-primary p-6"><span className="eyebrow text-accent">{x[0]}</span><h3 className="display-title mt-16 text-4xl">{x[1]}</h3><p className="mt-4 text-xs leading-5 text-primary-foreground/55">{x[2]}</p></div>)}</div></div></section>
 
-    <section className="section-pad page-shell"><SectionHead number="14" label="What we need" title="Start With What You Already Have."/><div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr]"><label className="flex min-h-80 cursor-pointer flex-col items-center justify-center border border-dashed bg-card text-center"><input type="file" accept="image/*" className="sr-only"/><span className="display-title text-4xl">Drop your reference image</span><span className="mt-3 text-xs text-muted-foreground">or select from your device</span></label><div>{["Product dimensions, if required","Correct product color","Important material information","Details that must not change","Desired image count","Required environments","Existing visual guidelines"].map(x=><div key={x} className="flex gap-3 border-t py-4 text-sm"><Check size={15} className="text-signal"/>{x}</div>)}<p className="mt-6 text-sm text-muted-foreground">Better references help us preserve more product detail.</p></div></div></section>
+    <section className="section-pad page-shell"><SectionHead number="14" label="What we need" title="Start With What You Already Have."/><div className="grid gap-8 lg:grid-cols-[1.1fr_.9fr]"><ReferenceDrop/><div>{["Product dimensions, if required","Correct product color","Important material information","Details that must not change","Desired image count","Required environments","Existing visual guidelines"].map(x=><div key={x} className="flex gap-3 border-t py-4 text-sm"><Check size={15} className="text-signal"/>{x}</div>)}<p className="mt-6 text-sm text-muted-foreground">Better references help us preserve more product detail.</p></div></div></section>
 
     <ProjectGallery/>
 
