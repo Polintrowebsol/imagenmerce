@@ -11,6 +11,14 @@ import gen3 from "@/assets/RF-A1592_3.png.asset.json";
 import gen4 from "@/assets/RF-A1592_4.png.asset.json";
 import gen5 from "@/assets/RF-A1592_5.png.asset.json";
 import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+import arh1 from "@/assets/ARH-131_1.png.asset.json";
+import arh2 from "@/assets/ARH-131_2.png.asset.json";
+import arh3 from "@/assets/ARH-131_3.png.asset.json";
+import arh4 from "@/assets/ARH-131_4.png.asset.json";
+import arh5 from "@/assets/ARH-131_5.png.asset.json";
+import arh6 from "@/assets/ARH-131_6.png.asset.json";
+
+const catalogImages = [arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
 
 const reference = originalAsset.url;
 const hero = gen1.url;
