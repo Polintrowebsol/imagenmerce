@@ -11,6 +11,14 @@ import gen3 from "@/assets/RF-A1592_3.png.asset.json";
 import gen4 from "@/assets/RF-A1592_4.png.asset.json";
 import gen5 from "@/assets/RF-A1592_5.png.asset.json";
 import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+import arh1 from "@/assets/ARH-131_1.png.asset.json";
+import arh2 from "@/assets/ARH-131_2.png.asset.json";
+import arh3 from "@/assets/ARH-131_3.png.asset.json";
+import arh4 from "@/assets/ARH-131_4.png.asset.json";
+import arh5 from "@/assets/ARH-131_5.png.asset.json";
+import arh6 from "@/assets/ARH-131_6.png.asset.json";
+
+const catalogImages = [arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
 
 const reference = originalAsset.url;
 const hero = gen1.url;
@@ -122,7 +130,7 @@ function Explosion() {
 }
 
 function CatalogCompare() {
-  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{images.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`RF-A1592 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
+  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{catalogImages.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`ARH-131 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
 }
 
 function ProductPage() {
