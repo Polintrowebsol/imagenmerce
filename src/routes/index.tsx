@@ -11,6 +11,7 @@ import gen3 from "@/assets/RF-A1592_3.png.asset.json";
 import gen4 from "@/assets/RF-A1592_4.png.asset.json";
 import gen5 from "@/assets/RF-A1592_5.png.asset.json";
 import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+import arhOriginal from "@/assets/ARH-131.webp.asset.json";
 import arh1 from "@/assets/ARH-131_1.png.asset.json";
 import arh2 from "@/assets/ARH-131_2.png.asset.json";
 import arh3 from "@/assets/ARH-131_3.png.asset.json";
@@ -18,7 +19,8 @@ import arh4 from "@/assets/ARH-131_4.png.asset.json";
 import arh5 from "@/assets/ARH-131_5.png.asset.json";
 import arh6 from "@/assets/ARH-131_6.png.asset.json";
 
-const catalogImages = [arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
+const catalogImages = [arhOriginal.url, arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
+const catalogNames = ["Client reference", "Hero", "Angle", "Detail", "Lifestyle 01", "Lifestyle 02", "Dimensions"];
 
 const reference = originalAsset.url;
 const hero = gen1.url;
@@ -50,9 +52,9 @@ const sequence = [
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Imagenmerce — AI Product Imaging" },
+    { title: "Imagenmerce — Product Imaging Studio" },
     { name: "description", content: "Transform one product reference photo into a consistent six-image visual system for product pages and catalogs." },
-    { property: "og:title", content: "Imagenmerce — AI Product Imaging" },
+    { property: "og:title", content: "Imagenmerce — Product Imaging Studio" },
     { property: "og:description", content: "One reference photo. Six professionally directed product visuals." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
@@ -130,7 +132,8 @@ function Explosion() {
 }
 
 function CatalogCompare() {
-  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Product Can Look Good. The Entire Catalog Should Look Connected." copy="A repeatable image system turns disconnected product photos into a visually unified catalog."/><div className="rounded-lg border bg-card p-4 md:p-8"><div className="grid grid-cols-2 gap-2 sm:grid-cols-3">{catalogImages.map((src,i)=><div key={src} className="aspect-square overflow-hidden rounded-md border bg-background"><img src={src} alt={`ARH-131 ${imageNames[i]} view in catalog grid`} loading="lazy" width={512} height={512} className="size-full object-contain"/></div>)}</div><p className="mt-6 text-center text-xs uppercase tracking-[.14em] text-muted-foreground">Same background, scale and camera language across the collection</p></div></section>;
+  const [selected, setSelected] = useState(0);
+  return <section className="section-pad page-shell"><SectionHead number="06" label="Catalog rhythm" title="One Client Image. A Complete Product Story." copy="Start with the reference supplied by the client, then explore each carefully built view. Every frame is planned, checked and refined to keep the product recognizable and the full set consistent."/><div className="border-y py-6 md:py-10"><div className="grid items-start gap-8 lg:grid-cols-[1.4fr_.6fr]"><figure><div className="relative aspect-square overflow-hidden rounded-md border bg-card"><img src={catalogImages[selected]} alt={`ARH-131 — ${catalogNames[selected]}`} width={1000} height={1000} className="size-full object-contain"/><span className={`absolute left-4 top-4 px-3 py-2 text-[9px] font-bold uppercase tracking-[.16em] ${selected===0?"bg-secondary text-secondary-foreground":"bg-signal text-primary-foreground"}`}>{selected===0?"Provided by client":"Finished by Imagenmerce"}</span></div><figcaption className="mt-4 flex items-center justify-between gap-4 border-b pb-4"><span className="font-semibold">{selected===0?"ARH-131":`ARH-131_${selected}`}</span><span className="text-xs text-muted-foreground">{catalogNames[selected]}</span></figcaption></figure><div><p className="eyebrow text-muted-foreground">Click to explore the series</p><div className="mt-5 grid grid-cols-3 gap-3 lg:grid-cols-2">{catalogImages.map((src,i)=><button key={src} type="button" onClick={()=>setSelected(i)} aria-label={`View ${catalogNames[i]}`} aria-pressed={selected===i} className={`group border p-2 text-left transition-colors ${selected===i?"border-signal bg-signal/5":"border-border hover:border-foreground"}`}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt="" loading={i===0?"eager":"lazy"} width={240} height={240} className="size-full object-contain"/></div><span className="mt-2 block text-[9px] font-semibold uppercase tracking-[.1em] text-muted-foreground">{i===0?"Original":`View 0${i}`}</span></button>)}</div><div className="mt-8 border-l-2 border-signal pl-5"><p className="display-title text-3xl">Reference → directed image series</p><p className="mt-3 text-xs leading-6 text-muted-foreground">A technology-assisted studio workflow, shaped by careful art direction, product checks and finishing—not one-click output.</p></div></div></div></div></section>;
 }
 
 function ProductPage() {
@@ -188,7 +191,7 @@ function Index() {
   const [processStep,setProcessStep]=useState(0);
   const checks=["Square composition","Balanced product scale","Controlled neutral background","Consistent baseline","Consistent camera language","Natural ground shadow","Product-only hero presentation","Detail image included","Dimension visual where required","Consistent treatment across the set"];
   return <main id="top" className="overflow-clip"><Navigation/><ProjectFormDialog/>
-    <section className="page-shell flex min-h-[86vh] flex-col justify-center pb-10 pt-32"><div className="grid items-end gap-10 lg:grid-cols-[.8fr_1.2fr]"><div className="pb-4"><p className="eyebrow text-signal">AI product imaging / Art-directed systems</p><h1 className="display-title mt-6 text-5xl sm:text-6xl lg:text-[5.4rem]">Turn One Product Photo Into a Complete Visual System.</h1><p className="mt-7 max-w-lg text-sm leading-7 text-muted-foreground">Professional product imagery created from your reference photo — designed for product pages, catalogs, campaigns and online stores.</p><div className="mt-8 flex flex-wrap gap-3"><Button onClick={openProjectForm}>Transform My Product <ArrowRight size={15}/></Button><Button asChild variant="outline"><a href="#process">See the Process <ArrowDown size={15}/></a></Button></div></div><Compare className="aspect-square min-h-[25rem]"/></div></section>
+    <section className="page-shell flex min-h-[86vh] flex-col justify-center pb-10 pt-32"><div className="grid items-end gap-10 lg:grid-cols-[.8fr_1.2fr]"><div className="pb-4"><p className="eyebrow text-signal">Product imaging studio / Art-directed systems</p><h1 className="display-title mt-6 text-5xl sm:text-6xl lg:text-[5.4rem]">Turn One Product Photo Into a Complete Visual System.</h1><p className="mt-7 max-w-lg text-sm leading-7 text-muted-foreground">Professional product imagery built from your reference photo, then directed, checked and refined for product pages, catalogs, campaigns and online stores.</p><div className="mt-8 flex flex-wrap gap-3"><Button onClick={openProjectForm}>Transform My Product <ArrowRight size={15}/></Button><Button asChild variant="outline"><a href="#process">See the Process <ArrowDown size={15}/></a></Button></div></div><Compare className="aspect-square min-h-[25rem]"/></div></section>
 
     <ClientWork/>
 
@@ -212,7 +215,7 @@ function Index() {
 
     <ProductPage/>
 
-    <section className="section-pad page-shell"><SectionHead number="11" label="Business value" title="Product Imaging Without Rebuilding a Photoshoot for Every Visual."/><div className="grid gap-12 lg:grid-cols-2"><div><p className="eyebrow text-muted-foreground">Traditional workflow</p>{["Product preparation","Shipping","Studio","Photographer","Multiple setups","Additional environments","Reshoots","Post-production"].map((x,i)=><div key={x} className="border-t py-4 text-lg"><span className="mr-4 text-xs text-muted-foreground">0{i+1}</span>{x}</div>)}</div><div><p className="eyebrow text-signal">AI-assisted product imaging</p>{["Send reference","Define required views","Create visual system","Generate variations","Review","Refine","Deliver"].map((x,i)=><div key={x} className="border-t py-4 text-lg"><span className="mr-4 text-xs text-signal">0{i+1}</span>{x}</div>)}</div></div><p className="display-title mt-20 text-center text-6xl">One product <ArrowRight className="inline"/> multiple visual assets.</p></section>
+    <section className="section-pad page-shell"><SectionHead number="11" label="Business value" title="Product Imaging Without Rebuilding a Photoshoot for Every Visual." copy="Our technology-assisted studio process combines efficient production with deliberate art direction, visual checks and hands-on refinement."/><div className="grid gap-12 lg:grid-cols-2"><div><p className="eyebrow text-muted-foreground">Traditional workflow</p>{["Product preparation","Shipping","Studio","Photographer","Multiple setups","Additional environments","Reshoots","Post-production"].map((x,i)=><div key={x} className="border-t py-4 text-lg"><span className="mr-4 text-xs text-muted-foreground">0{i+1}</span>{x}</div>)}</div><div><p className="eyebrow text-signal">Imagenmerce workflow</p>{["Study the reference","Define required views","Direct the visual system","Build each variation","Check product accuracy","Refine every frame","Deliver the complete set"].map((x,i)=><div key={x} className="border-t py-4 text-lg"><span className="mr-4 text-xs text-signal">0{i+1}</span>{x}</div>)}</div></div><p className="display-title mt-20 text-center text-6xl">One product <ArrowRight className="inline"/> multiple visual assets.</p></section>
 
     <CatalogScale/>
 
