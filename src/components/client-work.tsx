@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import originalAsset from "@/assets/RF-A1592.webp.asset.json";
-import gen1 from "@/assets/RF-A1592_1.png.asset.json";
-import gen2 from "@/assets/RF-A1592_2.png.asset.json";
-import gen3 from "@/assets/RF-A1592_3.png.asset.json";
-import gen4 from "@/assets/RF-A1592_4.png.asset.json";
-import gen5 from "@/assets/RF-A1592_5.png.asset.json";
-import gen6 from "@/assets/RF-A1592_6.png.asset.json";
+import gen1 from "@/assets/RF-A1592_1.webp.asset.json";
+import gen2 from "@/assets/RF-A1592_2.webp.asset.json";
+import gen3 from "@/assets/RF-A1592_3.webp.asset.json";
+import gen4 from "@/assets/RF-A1592_4.webp.asset.json";
+import gen5 from "@/assets/RF-A1592_5.webp.asset.json";
+import gen6 from "@/assets/RF-A1592_6.webp.asset.json";
 
 type Product = {
   sku: string;
