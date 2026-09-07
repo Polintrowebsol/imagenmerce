@@ -11,7 +11,7 @@ import gen3 from "@/assets/RF-A1592_3.png.asset.json";
 import gen4 from "@/assets/RF-A1592_4.png.asset.json";
 import gen5 from "@/assets/RF-A1592_5.png.asset.json";
 import gen6 from "@/assets/RF-A1592_6.png.asset.json";
-import arhOriginal from "@/assets/ARH-131.webp.asset.json";
+import arhClientReference from "@/assets/ARH-131-client-reference.jpg.asset.json";
 import arh1 from "@/assets/ARH-131_1.png.asset.json";
 import arh2 from "@/assets/ARH-131_2.png.asset.json";
 import arh3 from "@/assets/ARH-131_3.png.asset.json";
@@ -19,7 +19,7 @@ import arh4 from "@/assets/ARH-131_4.png.asset.json";
 import arh5 from "@/assets/ARH-131_5.png.asset.json";
 import arh6 from "@/assets/ARH-131_6.png.asset.json";
 
-const catalogImages = [arhOriginal.url, arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
+const catalogImages = [arhClientReference.url, arh1.url, arh2.url, arh3.url, arh4.url, arh5.url, arh6.url];
 const catalogNames = ["Client reference", "Hero", "Angle", "Detail", "Lifestyle 01", "Lifestyle 02", "Dimensions"];
 
 const reference = originalAsset.url;
