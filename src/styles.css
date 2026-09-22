@@ -102,7 +102,7 @@ img { max-width: 100%; }
   }
 
   .page-shell { width: min(100% - 1.25rem, 86rem); }
-  .section-pad { padding-block: 3.5rem; }
+  .section-pad { padding-block: 2.5rem; }
   .display-title { overflow-wrap: anywhere; }
 }
 
