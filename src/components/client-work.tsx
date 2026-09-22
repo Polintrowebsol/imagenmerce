@@ -32,10 +32,10 @@ export function ClientWork() {
 
   return (
     <section id="work" className="section-pad page-shell">
-      <div className="reveal mb-12 grid gap-5 border-t pt-5 lg:grid-cols-[1fr_3fr]">
+      <div className="reveal mb-12 grid min-w-0 gap-5 border-t pt-5 lg:grid-cols-[1fr_3fr]">
         <div className="eyebrow text-muted-foreground">01 — Client work</div>
-        <div>
-          <h2 className="display-title max-w-4xl text-5xl sm:text-6xl lg:text-8xl">
+        <div className="min-w-0">
+          <h2 className="display-title max-w-4xl break-words text-[2.65rem] sm:text-6xl lg:text-8xl">
             One Client Image. Six Ready-to-Sell Product Images.
           </h2>
           <p className="mt-7 max-w-xl text-sm leading-7 text-muted-foreground">
@@ -63,7 +63,7 @@ export function ClientWork() {
         </div>
       )}
 
-      <div className="grid items-start gap-6 lg:grid-cols-[1fr_auto_1fr]">
+      <div className="mx-auto grid w-full max-w-3xl items-start gap-4 sm:gap-6 lg:grid-cols-[1fr_auto_1fr]">
         <figure className="rounded-lg border bg-card p-4">
           <span className="eyebrow rounded-md bg-secondary px-3 py-2 text-muted-foreground">
             Provided by client
@@ -120,7 +120,7 @@ export function ClientWork() {
             <div className="aspect-square overflow-hidden rounded-sm bg-background">
               <img src={image.url} alt="" loading="lazy" width={300} height={300} className="size-full object-contain" />
             </div>
-            <span className="mt-2 block text-[10px] font-semibold uppercase tracking-[.1em]">{image.label}</span>
+            <span className="mt-2 block overflow-hidden text-ellipsis text-[10px] font-semibold uppercase tracking-[.06em] sm:tracking-[.1em]">{image.label}</span>
           </button>
         ))}
       </div>

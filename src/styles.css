@@ -52,6 +52,7 @@
 * { border-color: var(--border); }
 html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
 body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
+img { max-width: 100%; }
 ::selection { background: var(--signal); color: var(--primary-foreground); }
 
 
@@ -86,6 +87,24 @@ body { margin: 0; background: var(--background); color: var(--foreground); font-
 .reveal { opacity: 0; transform: translateY(2rem); transition: opacity .8s ease, transform .8s ease; }
 .reveal.is-visible { opacity: 1; transform: none; }
 .nav-scrolled { background: color-mix(in oklab, var(--background) 88%, transparent); border-color: var(--border); box-shadow: 0 8px 40px color-mix(in oklab, var(--foreground) 8%, transparent); backdrop-filter: blur(18px); }
+.audience-scroll { scrollbar-width: thin; scrollbar-color: var(--signal) var(--border); overscroll-behavior-inline: contain; }
+.audience-scroll::-webkit-scrollbar { height: .45rem; }
+.audience-scroll::-webkit-scrollbar-track { background: var(--border); }
+.audience-scroll::-webkit-scrollbar-thumb { background: var(--signal); border-radius: 999px; }
+
+@media (max-width: 639px) {
+  .nav-scrolled,
+  .nav-mobile-open {
+    background: var(--background);
+    border-color: var(--border);
+    box-shadow: 0 8px 32px color-mix(in oklab, var(--foreground) 12%, transparent);
+    backdrop-filter: none;
+  }
+
+  .page-shell { width: min(100% - 1.25rem, 86rem); }
+  .section-pad { padding-block: 3.5rem; }
+  .display-title { overflow-wrap: anywhere; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
