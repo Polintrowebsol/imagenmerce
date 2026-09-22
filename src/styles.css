@@ -77,7 +77,7 @@ img { max-width: 100%; }
    including browsers viewed around 90% zoom. */
 @media (min-width: 1024px) {
   .section-pad { padding-block: clamp(3.25rem, 5.5vw, 5.75rem); }
-  .page-shell { width: min(92vw, 86rem); }
+  .page-shell { width: min(96vw, 96rem); }
 }
 
 @media (min-width: 1024px) and (max-height: 900px) {
