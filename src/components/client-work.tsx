@@ -32,14 +32,14 @@ export function ClientWork() {
 
   return (
     <section id="work" className="section-pad page-shell">
-      <div className="reveal mb-12 grid min-w-0 gap-5 border-t pt-5 lg:grid-cols-[1fr_3fr]">
+      <div className="reveal mb-12 border-t pt-5 text-center">
         <div className="eyebrow text-muted-foreground">01 — Client work</div>
-        <div className="min-w-0">
+        <div className="mx-auto mt-5 min-w-0">
           <h2 className="display-title max-w-6xl break-words text-[2.65rem] sm:text-6xl lg:max-w-none lg:text-[clamp(3rem,5vw,4.5rem)]">
             <span className="lg:whitespace-nowrap">One Client Image.</span><br />
             <span className="lg:whitespace-nowrap">Six Ready-to-Sell Product Images.</span>
           </h2>
-          <p className="mt-7 max-w-xl text-sm leading-7 text-muted-foreground">
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-muted-foreground">
             Modern e-commerce listings need enough visual depth to answer buyer questions quickly. IMAGENMERCE expands one clear client reference into a coordinated six-image asset system, organized by SKU so every finished view stays grouped and ready for product pages, catalogs and marketplaces.
           </p>
         </div>
@@ -64,12 +64,12 @@ export function ClientWork() {
         </div>
       )}
 
-      <div className="mx-auto grid w-full max-w-5xl items-start gap-4 sm:gap-6 lg:grid-cols-[1fr_auto_1fr]">
-        <figure className="rounded-lg border bg-card p-4">
-          <span className="eyebrow rounded-md bg-secondary px-3 py-2 text-muted-foreground">
+      <div className="mx-auto grid w-full max-w-5xl grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-2 sm:gap-6">
+        <figure className="min-w-0 rounded-lg border bg-card p-2 sm:p-4">
+          <span className="eyebrow inline-block max-w-full rounded-md bg-secondary px-2 py-2 text-[.55rem] text-muted-foreground sm:px-3 sm:text-[.65rem]">
             Provided by client
           </span>
-          <div className="mt-4 aspect-square overflow-hidden rounded-md bg-background">
+          <div className="mt-3 aspect-square overflow-hidden rounded-md bg-background sm:mt-4">
             <img
               src={product.original}
               alt={`${product.sku} original client-provided product photo`}
@@ -79,20 +79,20 @@ export function ClientWork() {
               className="size-full object-contain"
             />
           </div>
-          <figcaption className="mt-4 flex items-baseline justify-end">
-            <span className="text-xs text-muted-foreground">Original reference</span>
+          <figcaption className="mt-3 flex items-baseline justify-end sm:mt-4">
+            <span className="text-[10px] text-muted-foreground sm:text-xs">Original reference</span>
           </figcaption>
         </figure>
 
-        <div className="flex items-center justify-center lg:h-full">
-          <span className="flex size-12 items-center justify-center rounded-full bg-signal text-primary-foreground">
-            <ArrowRight size={18} />
+        <div className="flex h-full items-center justify-center">
+          <span className="flex size-9 items-center justify-center rounded-full bg-signal text-primary-foreground sm:size-12">
+            <ArrowRight size={16} />
           </span>
         </div>
 
-        <figure className="rounded-lg border bg-card p-4">
-          <span className="eyebrow rounded-md bg-signal/12 px-3 py-2 text-signal">Created by Imagenmerce</span>
-          <div className="mt-4 aspect-square overflow-hidden rounded-md bg-background">
+        <figure className="min-w-0 rounded-lg border bg-card p-2 sm:p-4">
+          <span className="eyebrow inline-block max-w-full rounded-md bg-signal/12 px-2 py-2 text-[.55rem] text-signal sm:px-3 sm:text-[.65rem]">Created by Imagenmerce</span>
+          <div className="mt-3 aspect-square overflow-hidden rounded-md bg-background sm:mt-4">
             <img
               src={active.url}
               alt={`${product.sku}${active.suffix} — ${active.label}`}
@@ -102,8 +102,8 @@ export function ClientWork() {
               className="size-full object-contain"
             />
           </div>
-          <figcaption className="mt-4 flex items-baseline justify-end">
-            <span className="text-xs text-muted-foreground">{active.label}</span>
+          <figcaption className="mt-3 flex min-w-0 items-baseline justify-end sm:mt-4">
+            <span className="truncate text-[10px] text-muted-foreground sm:text-xs">{active.label}</span>
           </figcaption>
         </figure>
       </div>
@@ -114,13 +114,14 @@ export function ClientWork() {
             key={image.suffix}
             onClick={() => setSelected(index)}
             aria-label={`View ${product.sku}${image.suffix} — ${image.label}`}
-            className={`rounded-md border-2 bg-card p-2 text-left transition-colors ${
+            className={`group relative rounded-md border-2 bg-card p-1.5 text-left transition-colors sm:p-2 ${
               index === selected ? "border-signal" : "border-transparent hover:border-input"
             }`}
           >
             <div className="aspect-square overflow-hidden rounded-sm bg-background">
               <img src={image.url} alt="" loading="lazy" width={300} height={300} className="size-full object-contain" />
             </div>
+            <span className="absolute right-2 top-2 flex size-7 items-center justify-center rounded-full bg-signal text-primary-foreground shadow-lg transition-transform group-hover:scale-110" aria-hidden="true"><ArrowRight size={13} /></span>
             <span className="mt-2 block overflow-hidden text-ellipsis text-[10px] font-semibold uppercase tracking-[.06em] sm:tracking-[.1em]">{image.label}</span>
           </button>
         ))}

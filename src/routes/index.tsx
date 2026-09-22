@@ -110,7 +110,7 @@ function Navigation() {
 }
 
 function SectionHead({ number, label, title, copy }: { number: string; label: string; title: ReactNode; copy?: string }) {
-  return <div className="reveal mb-12 grid min-w-0 gap-5 border-t pt-5 lg:grid-cols-[1fr_3fr]"><div className="eyebrow text-muted-foreground">{number} — {label}</div><div className="min-w-0"><h2 className="display-title max-w-6xl break-words text-[2.65rem] sm:text-6xl lg:text-6xl">{title}</h2>{copy&&<p className="mt-7 max-w-xl text-sm leading-7 text-muted-foreground">{copy}</p>}</div></div>;
+  return <div className="reveal mb-12 min-w-0 border-t pt-5 text-center"><div className="eyebrow text-muted-foreground">{number} — {label}</div><div className="mx-auto mt-5 min-w-0"><h2 className="display-title mx-auto max-w-6xl break-words text-[2.65rem] sm:text-6xl lg:text-6xl">{title}</h2>{copy&&<p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-muted-foreground">{copy}</p>}</div></div>;
 }
 
 function Standards() {
@@ -133,7 +133,7 @@ function Standards() {
 }
 
 function Explosion() {
-  return <section className="section-pad overflow-hidden bg-secondary"><div className="page-shell text-center"><p className="eyebrow">05 — One to six</p><h2 className="display-title mx-auto mt-5 max-w-4xl break-words text-[2.65rem] sm:text-6xl lg:max-w-none lg:text-[clamp(4rem,7vw,6rem)]"><span className="lg:whitespace-nowrap">One Reference.</span><br/><span className="lg:whitespace-nowrap">Six Ways to Understand the Product.</span></h2><p className="mx-auto mt-6 max-w-lg text-sm text-muted-foreground">Build a complete product story instead of relying on a single photograph.</p>
+  return <section className="section-pad overflow-hidden bg-secondary"><div className="page-shell text-center"><p className="eyebrow">05 — One to six</p><h2 className="display-title mx-auto mt-5 max-w-4xl break-words text-[2.65rem] sm:text-6xl lg:max-w-none lg:text-[clamp(4rem,7vw,6rem)]"><span className="lg:whitespace-nowrap">One Reference.</span><br/><span className="lg:whitespace-nowrap">Six Ways to Understand the Product.</span></h2><p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted-foreground">Build a complete product story instead of relying on a single photograph.</p>
     <div className="reveal mt-16 grid grid-cols-2 gap-2 md:grid-cols-6">{oneToSixImages.map((src,i)=><figure key={src} className={`${i%2?"md:translate-y-10":""}`}><div className="aspect-square overflow-hidden bg-card"><img src={src} alt={imageNames[i]} loading="lazy" width={1254} height={1254} className="size-full object-contain transition-transform duration-700 hover:scale-105"/></div><figcaption className="eyebrow mt-3 text-left">0{i+1} {imageNames[i]}</figcaption></figure>)}</div></div></section>;
 }
 
@@ -159,35 +159,11 @@ function ProductPage() {
 }
 
 function ReferenceDrop() {
-  const [file, setFile] = useState<{ name: string; url: string } | null>(null);
-  const [over, setOver] = useState(false);
-  const accept = (list: FileList | null) => {
-    const picked = list?.[0];
-    if (!picked || !["image/jpeg", "image/png", "image/webp"].includes(picked.type) || picked.size > 10 * 1024 * 1024) return;
-    setFile((previous) => {
-      if (previous) URL.revokeObjectURL(previous.url);
-      return { name: picked.name, url: URL.createObjectURL(picked) };
-    });
-  };
-  useEffect(() => () => { if (file) URL.revokeObjectURL(file.url); }, [file]);
-  return <div className="flex flex-col gap-4">
-    <label
-      onDragOver={(e) => { e.preventDefault(); setOver(true); }}
-      onDragLeave={() => setOver(false)}
-      onDrop={(e) => { e.preventDefault(); setOver(false); accept(e.dataTransfer.files); }}
-      className={`flex min-h-80 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed bg-card p-4 text-center transition-colors ${over ? "border-signal bg-signal/5" : ""}`}
-    >
-      <input type="file" accept="image/jpeg,image/png,image/webp" className="sr-only" onChange={(e) => accept(e.target.files)} />
-      {file ? <>
-        <img src={file.url} alt={file.name} className="max-h-64 w-auto rounded-md object-contain" />
-        <span className="mt-4 text-xs text-muted-foreground">{file.name} — click to choose another image</span>
-      </> : <>
-        <span className="display-title text-4xl">Drop your reference image</span>
-        <span className="mt-3 text-xs text-muted-foreground">JPEG, PNG or WebP · maximum 10 MB</span>
-      </>}
-    </label>
-    {file && <div className="flex flex-wrap items-center gap-3"><Button onClick={openProjectForm}>Send this reference with my request <ArrowRight size={15}/></Button><Button variant="outline" onClick={() => setFile((previous) => { if (previous) URL.revokeObjectURL(previous.url); return null; })}>Remove</Button></div>}
-  </div>;
+  return <button type="button" onClick={openProjectForm} className="flex min-h-80 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed bg-card p-6 text-center transition-colors hover:border-signal hover:bg-signal/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+    <span className="display-title text-4xl">Drop your reference image</span>
+    <span className="mt-4 text-base text-muted-foreground">Open the secure project form to add your email and upload your product image.</span>
+    <span className="mt-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[.12em] text-signal">Open upload form <ArrowRight size={15}/></span>
+  </button>;
 }
 
 function Index() {
@@ -195,7 +171,7 @@ function Index() {
   const [processStep,setProcessStep]=useState(0);
   const checks=["Square composition","Balanced product scale","Controlled neutral background","Consistent baseline","Consistent camera language","Natural ground shadow","Product-only hero presentation","Detail image included","Dimension visual where required","Consistent treatment across the set"];
   return <main id="top" className="overflow-clip"><Navigation/><ProjectFormDialog/>
-    <section className="page-shell flex min-h-[86vh] flex-col justify-center pb-10 pt-32"><div className="grid min-w-0 items-end gap-10 lg:grid-cols-[.8fr_1.2fr]"><div className="min-w-0 pb-4"><p className="eyebrow text-signal">Product imaging studio / Art-directed systems</p><h1 className="display-title mt-6 break-words text-5xl sm:text-6xl lg:text-[4rem]">Turn One Product Photo Into A High-Converting Visual System.</h1><p className="mt-7 max-w-xl text-sm leading-7 text-muted-foreground">Skip the cost and logistics of repeated commercial photoshoots. IMAGENMERCE is an art-directed product imaging studio that turns one clear reference photograph into a coordinated, marketplace-ready six-image visual system. For eligible, pre-scoped projects, production can be completed in as little as 48 hours.</p><div className="mt-8 flex flex-wrap gap-3"><Button onClick={openProjectForm}>Transform My Product <ArrowRight size={15}/></Button><Button variant="outline" asChild><a href={catalogEmailHref}>Discuss A Catalog <ArrowRight size={15}/></a></Button></div></div><Compare className="aspect-square w-full min-h-0"/></div></section>
+    <section className="page-shell flex min-h-[86vh] flex-col justify-center pb-10 pt-32"><div className="grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,46rem)]"><div className="min-w-0 max-w-[38rem] py-8 lg:justify-self-start"><p className="eyebrow text-signal">Product imaging studio / Art-directed systems</p><h1 className="display-title mt-6 break-words text-5xl sm:text-6xl lg:text-[4rem]">Turn One Product Photo Into A High-Converting Visual System.</h1><p className="mt-7 max-w-xl text-base leading-8 text-muted-foreground">Skip the cost and logistics of repeated commercial photoshoots. IMAGENMERCE is an art-directed product imaging studio that turns one clear reference photograph into a coordinated, marketplace-ready six-image visual system. For eligible, pre-scoped projects, production can be completed in as little as 48 hours.</p><div className="mt-8 flex flex-wrap gap-3"><Button onClick={openProjectForm}>Transform My Product <ArrowRight size={15}/></Button><Button variant="outline" asChild><a href={catalogEmailHref}>Discuss A Catalog <ArrowRight size={15}/></a></Button></div></div><Compare className="aspect-square w-full max-w-[46rem] min-h-0 justify-self-center lg:justify-self-end"/></div></section>
 
     <ClientWork/>
 
@@ -213,7 +189,7 @@ function Index() {
 
     <section className="section-pad bg-secondary"><div className="page-shell"><SectionHead number="07" label="Product accuracy" title="Presentation Changes. The Product Alignment Remains Absolute." copy="Generic one-click image tools can drift from the real product—changing silhouettes, textures, logos or construction details. IMAGENMERCE uses a technology-assisted studio workflow shaped by human art direction, manual isolation and pixel-level finishing to keep the product aligned with the supplied reference."/><div className="grid items-start gap-10 lg:grid-cols-[minmax(0,38rem)_minmax(0,1fr)] lg:justify-center"><Compare left="/images/product-accuracy-before.webp" right="/images/product-accuracy-after.png" leftLabel="Before" rightLabel="After" className="aspect-square w-full max-w-[38rem] justify-self-center"/><div className="flex min-w-0 flex-col justify-between"><div><p className="eyebrow mb-4 text-muted-foreground">What we lock</p>{["Silhouette & proportions","Visible materials","Construction details","Recognizable textures","Product color","Logos & important markings","Cross-image consistency","Manual material isolation where required"].map(x=><div key={x} className="flex items-center gap-3 border-t py-4 text-sm"><Check size={15} className="shrink-0 text-signal"/>{x}</div>)}</div><div className="mt-8 border-l-2 border-signal pl-5"><p className="display-title break-words text-3xl">The reference image is the source of truth.</p><p className="mt-4 text-xs leading-6 text-muted-foreground">Backgrounds and camera presentation can change. Product markings, construction cues and identifiable details are checked against the original reference throughout the workflow.</p></div></div></div></div></section>
 
-    <section className="section-pad page-shell"><SectionHead number="08" label="What we fix" title="From Ordinary Photo to Product-Ready Presentation."/><div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4">{[["Busy background","Clean background"],["Poor framing","Balanced framing"],["Off-center product","Correct positioning"],["Inconsistent scale","Standardized scale"],["Harsh lighting","Controlled presentation"],["Missing views","Complete image set"],["Disconnected catalog","Unified visual system"]].map((x,i)=><div key={x[0]} className="bg-background p-6"><span className="eyebrow text-muted-foreground">0{i+1}</span><p className="mt-12 text-sm text-muted-foreground line-through">{x[0]}</p><p className="mt-2 flex items-center gap-2 text-xl"><ArrowRight size={16} className="text-signal"/>{x[1]}</p></div>)}</div></section>
+    <section className="section-pad page-shell"><SectionHead number="08" label="What we fix" title="From Ordinary Photo to Product-Ready Presentation."/><div className="grid grid-cols-2 gap-px bg-border lg:grid-cols-4">{[["Busy background","Clean background"],["Poor framing","Balanced framing"],["Off-center product","Correct positioning"],["Inconsistent scale","Standardized scale"],["Harsh lighting","Controlled presentation"],["Missing views","Complete image set"],["Disconnected catalog","Unified visual system"]].map((x,i)=><div key={x[0]} className="min-w-0 bg-background p-4 sm:p-6"><span className="eyebrow text-muted-foreground">0{i+1}</span><p className="mt-5 text-xs text-muted-foreground line-through sm:mt-12 sm:text-sm">{x[0]}</p><p className="mt-2 flex items-start gap-2 break-words text-base sm:text-xl"><ArrowRight size={16} className="mt-1 shrink-0 text-signal"/>{x[1]}</p></div>)}</div></section>
 
     <section className="section-pad bg-secondary"><div className="page-shell"><SectionHead number="09" label="Image quality checklist" title="Every Image Follows a System."/><div className="grid gap-10 lg:grid-cols-2"><div>{checks.map((x,i)=><div key={x} className="reveal flex items-center gap-4 border-t py-4"><span className="flex size-6 items-center justify-center border border-signal text-signal"><Check size={14}/></span><span>{x}</span></div>)}</div><div className="fine-grid grid grid-cols-2 content-center gap-px border bg-border p-px">{["1600 × 1600\nreference output","1:1\ncomposition","sRGB\ncolor profile","Web-optimized\nformats","Daylight-style\nwhite balance","Optimized\nfile weight"].map(x=><div key={x} className="whitespace-pre-line bg-card p-6 text-lg">{x}</div>)}</div></div></div></section>
 
