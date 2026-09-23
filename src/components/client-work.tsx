@@ -10,16 +10,16 @@ type Product = {
 
 export const products: Product[] = [
   {
-    sku: "ARH-119",
+    sku: "IMG-FRN-014",
     title: "Client product",
-    original: "/images/ARH-119.webp",
+    original: "/images/IMG-FRN-014.webp",
     generated: [
-      { suffix: "_1", label: "01 — Studio Hero Shot (Perfect for Amazon & Shopify front views)", url: "/images/ARH-119_1.webp" },
-      { suffix: "_2", label: "02 — 3D Angled View (Reconstructed spatial perspective)", url: "/images/ARH-119_2.webp" },
-      { suffix: "_3", label: "03 — Macro Detail (High-zoom material texture & edge craftsmanship)", url: "/images/ARH-119_3.webp" },
-      { suffix: "_4", label: "04 — Contextual Lifestyle 01 (Premium ambient environment)", url: "/images/ARH-119_4.webp" },
-      { suffix: "_5", label: "05 — Contextual Lifestyle 02 (Alternative buyer persona setting)", url: "/images/ARH-119_5.webp" },
-      { suffix: "_6", label: "06 — Technical Dimensions (Human-verified vector line-art blueprint)", url: "/images/ARH-119_6.webp" },
+      { suffix: "_1", label: "01 — Studio Hero Shot (Perfect for Amazon & Shopify front views)", url: "/images/IMG-FRN-014_1.webp" },
+      { suffix: "_2", label: "02 — 3D Angled View (Reconstructed spatial perspective)", url: "/images/IMG-FRN-014_2.webp" },
+      { suffix: "_3", label: "03 — Macro Detail (High-zoom material texture & edge craftsmanship)", url: "/images/IMG-FRN-014_3.webp" },
+      { suffix: "_4", label: "04 — Contextual Lifestyle 01 (Premium ambient environment)", url: "/images/IMG-FRN-014_4.webp" },
+      { suffix: "_5", label: "05 — Contextual Lifestyle 02 (Alternative buyer persona setting)", url: "/images/IMG-FRN-014_5.webp" },
+      { suffix: "_6", label: "06 — Technical Dimensions (Human-verified vector line-art blueprint)", url: "/images/IMG-FRN-014_6.webp" },
     ],
   },
 ];
@@ -40,7 +40,7 @@ export function ClientWork() {
             <span className="lg:whitespace-nowrap">Six Ready-to-Sell Product Images.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:mt-7 sm:text-base sm:leading-8">
-            Modern e-commerce listings need enough visual depth to answer buyer questions quickly. IMAGENMERCE expands one clear client reference into a coordinated six-image asset system, organized by SKU so every finished view stays grouped and ready for product pages, catalogs and marketplaces.
+            One client reference becomes a coordinated listing set through brief-led processing, careful refinement and quality review. The views are organized under a sample portfolio SKU for clear handoff.
           </p>
         </div>
       </div>
@@ -128,8 +128,7 @@ export function ClientWork() {
       </div>
 
       <p className="mt-6 max-w-2xl text-xs leading-6 text-muted-foreground">
-        {product.title} — {product.sku}. The silhouette, colour, wood tone and hardware are kept exactly as supplied.
-        Only the background, framing, camera angle and setting change.
+        {product.title} — {product.sku}. Our studio checks silhouette, colour, wood tone and hardware against the supplied reference throughout refinement. The final set is reviewed against the agreed brief.
       </p>
     </section>
   );
