@@ -36,8 +36,8 @@ export function ClientWork() {
         <div className="eyebrow text-muted-foreground">01 — Client work</div>
         <div className="mx-auto mt-4 min-w-0 sm:mt-5">
           <h2 className="display-title max-w-6xl break-words text-[2rem] sm:text-6xl lg:max-w-none lg:text-[clamp(3rem,5vw,4.5rem)]">
-            <span className="lg:whitespace-nowrap">One Client Image.</span><br />
-            <span className="lg:whitespace-nowrap">Six Ready-to-Sell Product Images.</span>
+            <span className="lg:whitespace-nowrap">One Product Reference.</span><br />
+            <span className="lg:whitespace-nowrap">Six Ready-to-Use Visuals.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-muted-foreground sm:mt-7 sm:text-base sm:leading-8">
             One client reference becomes a coordinated listing set through brief-led processing, careful refinement and quality review. The views are organized under a sample portfolio SKU for clear handoff.
