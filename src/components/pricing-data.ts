@@ -45,7 +45,7 @@ export function planMessage(plan: PricingPlan) {
 }
 
 export function planEmailUrl(plan: PricingPlan) {
-  return `mailto:imagenmerce@gmail.com?subject=${encodeURIComponent("I am Interested in Your Service")}&body=${encodeURIComponent(planMessage(plan))}`;
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent("imagenmerce@gmail.com")}&su=${encodeURIComponent("I am Interested in Your Service")}&body=${encodeURIComponent(planMessage(plan))}`;
 }
 
 export function planWhatsAppUrl(plan: PricingPlan) {

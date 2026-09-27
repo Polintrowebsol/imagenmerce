@@ -14,7 +14,7 @@ export function Pricing() {
         <p><strong>Delivery:</strong> {plan.delivery}</p><p><strong>Turnaround:</strong> {plan.turnaround}</p>
       </div>
       <div className="mt-auto grid grid-cols-2 gap-2 pt-7">
-        <a href={planEmailUrl(plan)} aria-label={`Email about ${plan.name} plan`} className="flex min-h-11 items-center justify-center rounded-md bg-gray-200 px-2 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Email</a>
+        <a href={planEmailUrl(plan)} target="_blank" rel="noopener noreferrer" aria-label={`Email about ${plan.name} plan`} className="flex min-h-11 items-center justify-center rounded-md bg-gray-200 px-2 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Email</a>
         <a href={planWhatsAppUrl(plan)} target="_blank" rel="noopener noreferrer" aria-label={`WhatsApp about ${plan.name} plan`} className="flex min-h-11 items-center justify-center rounded-md bg-green-800/85 px-2 text-sm font-semibold text-white transition-colors hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-800">WhatsApp</a>
       </div>
     </article>)}</div>
