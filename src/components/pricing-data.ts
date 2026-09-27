@@ -33,8 +33,11 @@ export type PricingPlan = (typeof pricingPlans)[number];
 
 export function planMessage(plan: PricingPlan) {
   return [
-    "Hello Imagenmerce Team,", "",
-    plan.name === "Starter" ? "I want Try your Starter Plan" : `I want to Start ${plan.name} Plan.`, "",
+    "Hello Imagenmerce Team,",
+    plan.name === "Starter"
+      ? "I want Try your Starter Plan"
+      : `I want to Start ${plan.name} Plan.`,
+    "",
     `${plan.name.toUpperCase()} — ${plan.tagline}`, `Price: ${plan.price}`,
     `Products: ${plan.products}`, `Purpose: ${plan.purpose}`, `Images: ${plan.images}`,
     `Image Types: ${plan.imageTypes}`, `Product Accuracy: ${plan.accuracy}`,
