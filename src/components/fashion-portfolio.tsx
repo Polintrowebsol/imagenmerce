@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 type Slide = { label: string; file: string };
 type Product = { name: string; slides: Slide[] };
 const products: Product[] = [
-  { name: "Cream Fashion", slides: [
+  { name: "Cream", slides: [
     { label: "Reference", file: "Cream_Reference.png" }, { label: "Hero", file: "Cream_hero_01.png" },
     { label: "Angle", file: "Cream_angle_02.png" }, { label: "Detail", file: "Cream_detail_03.png" },
     { label: "Studio", file: "Cream_shoot_04.png" }, { label: "Information", file: "Cream_informational_05.png" },
