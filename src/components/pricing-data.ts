@@ -8,14 +8,14 @@ export const pricingPlans = [
   },
   {
     name: "Standard", tagline: "6 Images · Full Ecommerce Set", price: "$12 / product",
-    products: "1–19 products", purpose: "Complete Amazon / Shopify / Ecommerce listing", images: "6 ecommerce images per product",
+    products: "1-99 products", purpose: "Complete Amazon / Shopify / Ecommerce listing", images: "6 ecommerce images per product",
     imageTypes: "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy: "Reference-based production with detailed product consistency and visual accuracy checks.", watermark: "No watermark",
     revisions: "Up to 2 revision rounds", delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed", turnaround: "Confirmed in quote",
   },
   {
     name: "Pro", tagline: "7 Images · Advanced Ecommerce Set", price: "$14 / product",
-    products: "1–19 products", purpose: "Premium listings / products that need stronger visual selling", images: "7 ecommerce images per product",
+    products: "1-99, 99+ $13 products", purpose: "Premium listings / products that need stronger visual selling", images: "7 ecommerce images per product",
     imageTypes: "Hero, angle, detail, lifestyle, feature/benefit, dimensions, plus one additional lifestyle or product-focused image as needed.",
     accuracy: "Reference-based production with enhanced product accuracy, consistency, and final QA checks.", watermark: "No watermark",
     revisions: "Up to 2 revision rounds", delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed", turnaround: "Confirmed in quote",
