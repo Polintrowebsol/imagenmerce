@@ -25,7 +25,7 @@ export const pricingPlans = [
   watermark: "No watermark",
   revisions: "Up to 2 revision rounds",
   delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
-  discounts: "1,000+ images: 2% volume discount · 10,000+ images: 5% volume discount",
+  Volume discounts: "2% off at 1,000+ images · 5% off at 10,000+ images",
   turnaround: "Confirmed in quote",
 },
   {
