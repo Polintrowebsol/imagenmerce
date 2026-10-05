@@ -12,7 +12,7 @@ export function Pricing() {
         <p><strong>Image Types:</strong> {plan.imageTypes}</p><p><strong>Product Accuracy:</strong> {plan.accuracy}</p>
         <p><strong>Watermark:</strong> {plan.watermark}</p><p><strong>Revisions:</strong> {plan.revisions}</p>
         <p><strong>Delivery:</strong> {plan.delivery}</p><p><strong>Turnaround:</strong> {plan.turnaround}</p>
-        {"discounts" in plan && (
+        {plan.name === "Custom" && (
         <p>
         <strong>Discounts:</strong> {plan.discounts}
         </p>
