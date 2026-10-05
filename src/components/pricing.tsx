@@ -12,6 +12,11 @@ export function Pricing() {
         <p><strong>Image Types:</strong> {plan.imageTypes}</p><p><strong>Product Accuracy:</strong> {plan.accuracy}</p>
         <p><strong>Watermark:</strong> {plan.watermark}</p><p><strong>Revisions:</strong> {plan.revisions}</p>
         <p><strong>Delivery:</strong> {plan.delivery}</p><p><strong>Turnaround:</strong> {plan.turnaround}</p>
+        {"discounts" in plan && (
+        <p>
+        <strong>Discounts:</strong> {plan.discounts}
+        </p>
+        )}
       </div>
       <div className="mt-auto grid grid-cols-2 gap-2 pt-7">
         <a href={planEmailUrl(plan)} target="_blank" rel="noopener noreferrer" aria-label={`Email about ${plan.name} plan`} className="flex min-h-11 items-center justify-center rounded-md bg-gray-200 px-2 text-sm font-semibold text-gray-900 transition-colors hover:bg-gray-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-700">Email</a>
