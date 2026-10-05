@@ -22,7 +22,7 @@ export const pricingPlans = [
   },
   {
     name: "Catalog", tagline: "6 Images · High-Volume Production", price: "From $10 / product",
-    products: "Minimum 20 products", purpose: "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production", images: "6 ecommerce images per product",
+    products: "Minimum 100 products", purpose: "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production", images: "6 ecommerce images per product",
     imageTypes: "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy: "Reference-based production with consistent visual standards and product accuracy checks across the catalog.", watermark: "No watermark",
     revisions: "Confirmed in quote based on project scope", delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed", turnaround: "Confirmed in quote based on catalog size",
