@@ -26,6 +26,7 @@ export const pricingPlans = [
       "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy:
       "Reference-based production with detailed product consistency and visual accuracy checks.",
+    watermark: "No watermark",
     revisions: "Up to 2 revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote",
@@ -42,6 +43,7 @@ export const pricingPlans = [
       "Hero, angle, detail, lifestyle, feature/benefit, dimensions, or other product-focused visuals as required.",
     accuracy:
       "Reference-based production with enhanced product accuracy, visual consistency, and final QA checks.",
+    watermark: "No watermark",
     revisions: "Up to 2 revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     discounts: "1,000+ images: 2% off · 10,000+ images: 5% off",
@@ -59,6 +61,7 @@ export const pricingPlans = [
       "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy:
       "Reference-based production with consistent visual standards and product accuracy checks across the catalog.",
+    watermark: "No watermark",
     revisions: "Confirmed in quote based on project scope",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote based on catalog size",
