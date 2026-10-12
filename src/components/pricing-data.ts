@@ -46,12 +46,12 @@ export const pricingPlans = [
     watermark: "No watermark",
     revisions: "Up to 2 SKU revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
-    discounts: "1,000+ images: 2% off",
+    discounts: "1,000+ images: 2% off🔸",
     turnaround: "Confirmed in quote",
   },
   {
     name: "Catalog",
-    tagline: "6 Images · High-Volume Production Fast ✈",
+    tagline: "6 Images · High-Volume Production Fast ✈🔹",
     price: "From $12 / SKU",
     products: "Minimum 100 SKUs",
     purpose:
@@ -62,7 +62,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with consistent visual standards and product accuracy checks across the catalog.",
     watermark: "No watermark",
-    revisions: "Confirmed in quote based on project scope",
+    revisions: "Confirmed in quote based on project scope🔹",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote based on catalog size",
   },
