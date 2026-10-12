@@ -18,7 +18,7 @@ export const pricingPlans = [
   {
     name: "Standard",
     tagline: "6 Images · Full Ecommerce Set",
-    price: "$6 / product",
+    price: "$12 / product",
     products: "1-99 products",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
     images: "6 ecommerce images per product",
@@ -34,7 +34,7 @@ export const pricingPlans = [
   {
     name: "Custom",
     tagline: "Flexible Ecommerce Imaging at Scale",
-    price: "$1 / image",
+    price: "$2 / image",
     products: "Custom product volume",
     purpose:
       "For large catalogs, bulk image production, and ongoing ecommerce content needs",
@@ -52,7 +52,7 @@ export const pricingPlans = [
   {
     name: "Catalog",
     tagline: "6 Images · High-Volume Production",
-    price: "From $5 / product",
+    price: "From $10 / product",
     products: "Minimum 100 products",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
