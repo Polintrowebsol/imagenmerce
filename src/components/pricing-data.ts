@@ -27,7 +27,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with detailed product consistency and visual accuracy checks.",
     watermark: "No watermark",
-    revisions: "Up to 2 revision rounds",
+    revisions: "Up to 1 revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote",
   },
@@ -44,15 +44,15 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with enhanced product accuracy, visual consistency, and final QA checks.",
     watermark: "No watermark",
-    revisions: "Up to 2 revision rounds",
+    revisions: "Up to 1 revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     discounts: "1,000+ images: 2% off",
     turnaround: "Confirmed in quote",
   },
   {
     name: "Catalog",
-    tagline: "6 Images · High-Volume Production",
-    price: "From $10 / product",
+    tagline: "6 Images · High-Volume Production Fast ✈",
+    price: "From $12 / product",
     products: "Minimum 100 products",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
