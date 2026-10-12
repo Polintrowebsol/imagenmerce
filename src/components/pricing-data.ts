@@ -2,8 +2,8 @@ export const pricingPlans = [
   {
     name: "Starter",
     tagline: "6 Images · Free Trial · Watermarked",
-    price: "$0 / product",
-    products: "Maximum 2–3 products",
+    price: "$0 / SKU",
+    products: "Maximum 2–3 SKUs",
     purpose: "Trial / simple listing",
     images: "6 ecommerce images per product",
     imageTypes:
@@ -18,8 +18,8 @@ export const pricingPlans = [
   {
     name: "Standard",
     tagline: "6 Images · Full Ecommerce Set",
-    price: "$12 / product",
-    products: "1-99 products",
+    price: "$12 / SKU",
+    products: "1-99 SKUs",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
     images: "6 ecommerce images per product",
     imageTypes:
@@ -27,7 +27,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with detailed product consistency and visual accuracy checks.",
     watermark: "No watermark",
-    revisions: "Up to 1 revision rounds",
+    revisions: "No revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote",
   },
@@ -35,7 +35,7 @@ export const pricingPlans = [
     name: "Custom",
     tagline: "Flexible Ecommerce Imaging at Scale",
     price: "$2 / image",
-    products: "Custom product volume",
+    products: "Custom SKU volume",
     purpose:
       "For large catalogs, bulk image production, and ongoing ecommerce content needs",
     images: "As required — pay per image",
@@ -44,7 +44,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with enhanced product accuracy, visual consistency, and final QA checks.",
     watermark: "No watermark",
-    revisions: "Up to 1 revision rounds",
+    revisions: "Up to 2 SKU revision rounds",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     discounts: "1,000+ images: 2% off",
     turnaround: "Confirmed in quote",
@@ -52,8 +52,8 @@ export const pricingPlans = [
   {
     name: "Catalog",
     tagline: "6 Images · High-Volume Production Fast ✈",
-    price: "From $12 / product",
-    products: "Minimum 100 products",
+    price: "From $12 / SKU",
+    products: "Minimum 100 SKUs",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
     images: "6 ecommerce images per product",
