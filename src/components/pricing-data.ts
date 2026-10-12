@@ -44,7 +44,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with enhanced product accuracy, visual consistency, and final QA checks.",
     watermark: "No watermark",
-    revisions: "Up to 2 SKU revision rounds",
+    revisions: "Up to 2 SKU revision rounds🔸",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     discounts: "1,000+ images: 2% off🔸",
     turnaround: "Confirmed in quote",
