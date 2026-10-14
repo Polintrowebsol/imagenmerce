@@ -34,7 +34,7 @@ export const pricingPlans = [
   {
     name: "Custom",
     tagline: "Flexible Ecommerce Imaging at Scale",
-    price: "$4 / image",
+    price: "$ / image",
     products: "Custom SKU volume",
     purpose:
       "For large catalogs, bulk image production, and ongoing ecommerce content needs",
