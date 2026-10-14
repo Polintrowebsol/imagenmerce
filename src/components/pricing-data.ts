@@ -56,7 +56,7 @@ export const pricingPlans = [
     products: "Minimum 5-10 SKU",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
-    images: "ecommerce product images",
+    images: "As required — pay per image",
     imageTypes:
       "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy:
