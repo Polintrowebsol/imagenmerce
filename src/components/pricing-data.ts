@@ -1,7 +1,7 @@
 export const pricingPlans = [
   {
     name: "Starter",
-    tagline: "6 Images · Free Trial · Watermarked",
+    tagline: "Free Trial · Watermarked",
     price: "$0 / SKU",
     products: "Maximum 1-2 Images",
     purpose: "Trial / simple listing",
