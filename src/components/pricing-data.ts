@@ -19,7 +19,7 @@ export const pricingPlans = [
     name: "Standard",
     tagline: "6 Images · Full Ecommerce Set",
     price: "$18 / SKU",
-    products: "1-99 SKUs",
+    products: "Minimum 10 SKUs",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
     images: "6 ecommerce images per product",
     imageTypes:
@@ -58,9 +58,9 @@ export const pricingPlans = [
       "Create AI model and lifestyle images for fashion brands, online stores, and new collections.",
     images: "As required — pay per image",
     imageTypes:
-      "AI model images, outfit and styling variations, lifestyle scenes, and campaign-style visuals, selected according to the product and brief.",
+      "AI model images, outfit variations, lifestyle scenes, and campaign-style visuals tailored to your fashion products.",
     accuracy:
-      " Reference-based production with checks for garment color, design, patterns, fit, and key details, subject to AI-generation limitations.",
+      "Reference-based production with checks for color, design, patterns, and garment details.",
     watermark: "No watermark",
     revisions: "Confirmed in quote based on project scope🔹",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
