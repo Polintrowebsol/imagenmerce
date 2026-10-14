@@ -52,7 +52,7 @@ export const pricingPlans = [
   {
     name: "Fashion",
     tagline: "AI models & lifestyle images🔹",
-    price: "From $6 / Image",
+    price: "$6 / Image",
     products: "Minimum 5-10 SKU",
     purpose:
       "Create AI model and lifestyle images for fashion brands, online stores, and new collections.",
