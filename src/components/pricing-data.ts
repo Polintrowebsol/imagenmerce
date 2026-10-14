@@ -55,12 +55,12 @@ export const pricingPlans = [
     price: "From $6 / Image",
     products: "Minimum 5-10 SKU",
     purpose:
-      "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
+      "Create AI model and lifestyle images for fashion brands, online stores, and new collections.",
     images: "As required — pay per image",
     imageTypes:
-      "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
+      "AI model images, outfit and styling variations, lifestyle scenes, and campaign-style visuals, selected according to the product and brief.",
     accuracy:
-      "Reference-based production with consistent visual standards and product accuracy checks across the catalog.",
+      " Reference-based production with checks for garment color, design, patterns, fit, and key details, subject to AI-generation limitations.",
     watermark: "No watermark",
     revisions: "Confirmed in quote based on project scope🔹",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
