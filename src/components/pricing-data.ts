@@ -50,7 +50,7 @@ export const pricingPlans = [
     turnaround: "Confirmed in quote",
   },
   {
-    name: "Catalog",
+    name: "Fashion",
     tagline: "AI models & lifestyle images🔹",
     price: "From $6 / Image",
     products: "Minimum 5-10 SKU",
