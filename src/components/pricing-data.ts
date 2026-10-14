@@ -5,7 +5,7 @@ export const pricingPlans = [
     price: "$0 / Image",
     products: "Maximum 1-2 Images",
     purpose: "Trial / simple listing",
-    images: "6 ecommerce images per product",
+    images: "ecommerce product images",
     imageTypes:
       "Hero, angle, detail, lifestyle, feature/benefit, or dimensions — selected according to the product.",
     accuracy:
@@ -56,7 +56,7 @@ export const pricingPlans = [
     products: "Minimum 5-10 SKU",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
-    images: "6 ecommerce images per product",
+    images: "ecommerce product images",
     imageTypes:
       "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy:
