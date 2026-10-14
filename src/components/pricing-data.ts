@@ -3,7 +3,7 @@ export const pricingPlans = [
     name: "Starter",
     tagline: "6 Images · Free Trial · Watermarked",
     price: "$0 / SKU",
-    products: "Maximum 2–3 SKUs",
+    products: "Maximum 1-2 Images",
     purpose: "Trial / simple listing",
     images: "6 ecommerce images per product",
     imageTypes:
@@ -17,7 +17,7 @@ export const pricingPlans = [
   },
   {
     name: "Standard",
-    tagline: "6 Images · Full Ecommerce Set",
+    tagline: "18 Images · Full Ecommerce Set",
     price: "$12 / SKU",
     products: "1-99 SKUs",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
@@ -34,7 +34,7 @@ export const pricingPlans = [
   {
     name: "Custom",
     tagline: "Flexible Ecommerce Imaging at Scale",
-    price: "$2 / image",
+    price: "$3 / image",
     products: "Custom SKU volume",
     purpose:
       "For large catalogs, bulk image production, and ongoing ecommerce content needs",
@@ -51,9 +51,9 @@ export const pricingPlans = [
   },
   {
     name: "Catalog",
-    tagline: "6 Images · High-Volume Production Fast ✈🔹",
-    price: "From $12 / SKU",
-    products: "Minimum 100 SKUs",
+    tagline: "AI models & lifestyle images🔹",
+    price: "From $6 / Image",
+    products: "Minimum 5-10 SKU",
     purpose:
       "Catalogs, large inventories, Amazon / Shopify product launches, and ongoing product production",
     images: "6 ecommerce images per product",
