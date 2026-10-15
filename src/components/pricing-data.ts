@@ -27,7 +27,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with detailed product consistency and visual accuracy checks.",
     watermark: "No watermark",
-    revisions: "No revision rounds",
+    revisions: "Product images will be revised until they match the approved reference image.",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote",
   },
@@ -44,7 +44,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with enhanced product accuracy, visual consistency, and final QA checks.",
     watermark: "No watermark",
-    revisions: "Up to 2 SKU revision rounds🔸",
+    revisions: "Product images will be revised until they match the approved reference image.",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     discounts: "1,000+ images: 2% off🔸",
     turnaround: "Confirmed in quote",
@@ -62,7 +62,7 @@ export const pricingPlans = [
     accuracy:
       "Reference-based production with checks for color, design, patterns, and garment details.",
     watermark: "No watermark",
-    revisions: "Confirmed in quote based on project scope🔹",
+    revisions: "Product images will be revised until they match the approved reference image.",
     delivery: "Ecommerce-ready JPG / PNG / WebP, as agreed",
     turnaround: "Confirmed in quote based on catalog size",
   },
