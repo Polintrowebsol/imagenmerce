@@ -5,7 +5,7 @@ import { openFreeAudit } from "@/components/audit-form";
 
 const links = [
   ["Home", "/"], ["Services", "/services"], ["Portfolio", "/portfolio"],
-  ["Pricing", "/pricing"], ["About", "/about"], ["Contact", "/contact"],
+  ["About", "/about"], ["Contact", "/contact"],
 ];
 
 export function SiteHeader() {
