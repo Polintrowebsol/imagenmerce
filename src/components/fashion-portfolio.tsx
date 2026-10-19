@@ -22,12 +22,6 @@ const products: Product[] = [
     { label: "Backside", file: "men coat_backside.png" }, { label: "Lifestyle 01", file: "men coat_lifestyle_01.png" },
     { label: "Lifestyle 02", file: "men coat_lifestyle_02.png" },
   ] },
-   { name: "Product", slides: [
-    { label: "Reference", file: "men coat_reference.png" }, { label: "Hero", file: "men coat_hero.png" },
-    { label: "Angle", file: "men coat_angle.png" }, { label: "Detail", file: "men coat_detail.png" },
-    { label: "Backside", file: "men coat_backside.png" }, { label: "Lifestyle 01", file: "men coat_lifestyle_01.png" },
-    { label: "Lifestyle 02", file: "men coat_lifestyle_02.png" },
-  ] },
 ];
 const source = (file: string) => `/images/fashion/${encodeURIComponent(file)}`;
 
