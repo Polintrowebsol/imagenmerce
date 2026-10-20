@@ -51,7 +51,7 @@ export const pricingPlans = [
   },
   {
     name: "Fashion & Beauty",
-    tagline: "AI models, & AI UGC images🔹",
+    tagline: "AI models, & AI UGC lifestyle images🔹",
     price: "$6 / Image",
     products: "Minimum 5 Images",
     purpose:
