@@ -18,10 +18,10 @@ export const pricingPlans = [
   {
     name: "Standard",
     tagline: "6 Images · Full Ecommerce Set",
-    price: "$20 / SKU",
+    price: "$23 / SKU",
     products: "Minimum 5 SKUs",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
-    images: "6 tailored images per product — pay for just 5!",
+    images: "6 tailored images per SKU for just $23 (Save $1). Additional images: $4 each.",
     imageTypes:
       "Hero, angle, detail, lifestyle, feature/benefit, and dimensions — selected according to the product.",
     accuracy:
