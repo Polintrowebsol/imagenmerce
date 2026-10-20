@@ -19,7 +19,7 @@ export const pricingPlans = [
     name: "Standard",
     tagline: "6 Images · Full Ecommerce Set",
     price: "$20 / SKU",
-    products: "Minimum 10 SKUs",
+    products: "Minimum 5 SKUs",
     purpose: "Complete Amazon / Shopify / Ecommerce listing",
     images: "6 tailored images per product — pay for just 5!",
     imageTypes:
@@ -35,7 +35,7 @@ export const pricingPlans = [
     name: "Custom",
     tagline: "Flexible Ecommerce Imaging at Scale",
     price: "$4 / image",
-    products: "Custom SKU volume",
+    products: "Custom Images / SKU volume",
     purpose:
       "For large catalogs, bulk image production, and ongoing ecommerce content needs",
     images: "As required — pay per image",
@@ -50,10 +50,10 @@ export const pricingPlans = [
     turnaround: "Confirmed in quote",
   },
   {
-    name: "Fashion",
-    tagline: "AI models & lifestyle images🔹",
+    name: "Fashion & Beauty",
+    tagline: "AI models, & UGC lifestyle images🔹",
     price: "$6 / Image",
-    products: "Minimum 5-10 SKU",
+    products: "Minimum 5 Images",
     purpose:
       "Create AI model and lifestyle images for fashion brands, online stores, and new collections.",
     images: "As required — pay per image",
